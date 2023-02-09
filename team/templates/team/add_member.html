@@ -1,0 +1,26 @@
+<div>
+    {% if isEdit %}
+    edit member
+    {% else %}
+    add member
+    {% endif %}
+</div>
+<form action="" method="post" >
+    {% csrf_token %}
+    <table>
+    {{ form }}
+    </table>
+    <input type="submit" value="Submit" />
+    
+
+</form>
+{% if isEdit %}
+<form action='{{uuid}}/delete' method='Post'>
+    {% csrf_token %}
+    {% if form.role == 'AD' %}
+    <button type='submit' disabled="true"> delete </button>
+    {% else %}
+    <button type='submit'> delete </button>
+    {% endif %}
+</form>
+{% endif %}

@@ -1,0 +1,13 @@
+<h1>Team members</h1>
+<h3>You have {{list|length}} members</h3>
+{% for member in list %}
+<a href="member/{{member.id}}">
+<div>
+    {{member}} {%if member.isAdmin %}(admin){%endif%}
+</div>
+</a>
+{% endfor %}
+<form action='add_member' method='Get'>
+    {% csrf_token %}
+    <button type='submit'> Add </button>
+</form>

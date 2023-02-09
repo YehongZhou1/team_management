@@ -1,9 +1,17 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'team/site.css' %}">
 <h1>Team members</h1>
 <h3>You have {{list|length}} members</h3>
 {% for member in list %}
-<a href="member/{{member.id}}">
+<a href="member/{{member.id}}" class="member">
 <div>
     {{member}} {%if member.isAdmin %}(admin){%endif%}
+</div>
+<div>
+    {{member.phone_number}}
+</div>
+<div>
+    {{member.email}}
 </div>
 </a>
 {% endfor %}

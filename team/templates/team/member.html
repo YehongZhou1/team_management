@@ -1,10 +1,10 @@
-<div>
+<h1>
     {% if isEdit %}
     edit member
     {% else %}
     add member
     {% endif %}
-</div>
+</h1>
 <form action="" method="post" >
     {% csrf_token %}
     <table>

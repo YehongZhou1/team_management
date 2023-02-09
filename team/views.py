@@ -35,7 +35,7 @@ def add_member(request):
     else:
         form = AddMemberForm()
 
-    return render(request, 'team/add_member.html', {'form' : form, 'isEdit':False})
+    return render(request, 'team/member.html', {'form' : form, 'isEdit':False})
 
 def index(request):
     member_list = Member.objects.all()
@@ -73,7 +73,7 @@ def edit_member(request, pk):
 
         form = AddMemberForm(initial = data)
 
-    return render(request, 'team/add_member.html', {'form' : form, 'isEdit' : True, 'uuid':pk})
+    return render(request, 'team/member.html', {'form' : form, 'isEdit' : True, 'uuid':pk})
 
 def delete_member(request, pk):
     member=get_object_or_404(Member, pk = pk)
